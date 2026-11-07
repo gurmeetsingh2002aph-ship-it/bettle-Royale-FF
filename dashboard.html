@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Battle FF Royale</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🔥</span>
+                <span class="logo-text">Battle <span class="accent">FF</span> Royale</span>
+            </a>
+            <div class="nav-links">
+                <span class="welcome-text">👋 <span class="user-name-display"></span></span>
+                <span class="wallet-badge">💰 <span class="wallet-amount">₹0</span></span>
+                <a href="#" class="btn btn-outline btn-sm btn-logout-user">Logout</a>
+            </div>
+            <button class="hamburger" onclick="document.getElementById('dashNav').classList.toggle('show')">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== DASHBOARD NAV ===== -->
+    <div class="dashboard-nav" id="dashNav">
+        <div class="container">
+            <button class="nav-btn active" data-section="home">🏠 Home</button>
+            <button class="nav-btn" data-section="tournaments">🏆 Tournaments</button>
+            <button class="nav-btn" data-section="my-tournaments">🎮 My Tournaments</button>
+            <button class="nav-btn" data-section="recharge">💳 Recharge</button>
+            <button class="nav-btn" data-section="payment-history">📊 History</button>
+            <button class="nav-btn" data-section="profile">👤 Profile</button>
+        </div>
+    </div>
+
+    <div class="container dashboard-content">
+
+        <!-- ===== HOME SECTION ===== -->
+        <section class="dashboard-section" id="homeSection">
+            <div class="welcome-banner">
+                <h1>🎮 Welcome, <span class="user-name-display"></span>!</h1>
+                <p>Ready to dominate? Check out the latest tournaments!</p>
+                <div class="quick-stats">
+                    <div class="quick-stat">
+                        <span class="qs-icon">💰</span>
+                        <span class="qs-label">Wallet</span>
+                        <span class="qs-value wallet-amount">₹0</span>
+                    </div>
+                    <div class="quick-stat">
+                        <span class="qs-icon">🏆</span>
+                        <span class="qs-label">Joined</span>
+                        <span class="qs-value" id="joinedCount">0</span>
+                    </div>
+                    <div class="quick-stat">
+                        <span class="qs-icon">⚡</span>
+                        <span class="qs-label">Available</span>
+                        <span class="qs-value" id="availableCount">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <button class="quick-action-btn" data-section="tournaments">
+                    <span>🏆</span> View Tournaments
+                </button>
+                <button class="quick-action-btn" data-section="recharge">
+                    <span>💳</span> Recharge Now
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== TOURNAMENTS SECTION ===== -->
+        <section class="dashboard-section" id="tournamentsSection" style="display:none;">
+            <h2>🏆 Available Tournaments</h2>
+            <div class="tournament-grid" id="tournamentList">
+                <!-- Loaded by JS -->
+            </div>
+        </section>
+
+        <!-- ===== MY TOURNAMENTS SECTION ===== -->
+        <section class="dashboard-section" id="my-tournamentsSection" style="display:none;">
+            <h2>🎮 My Tournaments</h2>
+            <div class="tournament-grid" id="myTournamentList">
+                <!-- Loaded by JS -->
+            </div>
+        </section>
+
+        <!-- ===== RECHARGE SECTION ===== -->
+        <section class="dashboard-section" id="rechargeSection" style="display:none;">
+            <h2>💳 Recharge Wallet</h2>
+
+            <div class="recharge-container">
+                <!-- QR Code Display -->
+                <div class="qr-section">
+                    <h3>📱 Scan QR Code to Pay</h3>
+                    <div class="qr-display" id="qrDisplay">
+                        <!-- QR loaded by JS -->
+                    </div>
+                    <div class="upi-id-box">
+                        <span>UPI ID: <b id="upiIdDisplay"></b></span>
+                        <button class="btn btn-sm btn-primary" id="copyUpiBtn">📋 Copy</button>
+                    </div>
+                </div>
+
+                <!-- Amount Input -->
+                <form id="rechargeForm" class="recharge-form">
+                    <div class="form-group">
+                        <label>💰 Enter Amount</label>
+                        <input type="number" id="rechargeAmount" min="10" value="100" placeholder="Enter amount (min ₹10)">
+                        <div class="amount-display">You will pay: <b id="displayAmount">₹100</b></div>
+                    </div>
+
+                    <!-- UPI Apps -->
+                    <h3>📱 Pay via UPI Apps</h3>
+                    <div class="upi-apps-grid">
+                        <a href="#" id="gpayLink" class="upi-app-card" target="_blank">
+                            <div class="upi-app-logo gpay-logo">G</div>
+                            <span>Google Pay</span>
+                        </a>
+                        <a href="#" id="phonepeLink" class="upi-app-card" target="_blank">
+                            <div class="upi-app-logo phonepe-logo">P</div>
+                            <span>PhonePe</span>
+                        </a>
+                        <a href="#" id="paytmLink" class="upi-app-card" target="_blank">
+                            <div class="upi-app-logo paytm-logo">₹</div>
+                            <span>Paytm</span>
+                        </a>
+                        <a href="#" id="bhimLink" class="upi-app-card" target="_blank">
+                            <div class="upi-app-logo bhim-logo">B</div>
+                            <span>BHIM</span>
+                        </a>
+                        <a href="#" id="amazonLink" class="upi-app-card" target="_blank">
+                            <div class="upi-app-logo amazon-logo">a</div>
+                            <span>Amazon Pay</span>
+                        </a>
+                        <a href="#" id="genericUpiLink" class="upi-app-card" target="_blank">
+                            <div class="upi-app-logo generic-logo">💰</div>
+                            <span>Other UPI</span>
+                        </a>
+                    </div>
+
+                    <div class="form-group">
+                        <label>📝 Enter UTR / Transaction ID</label>
+                        <input type="text" id="rechargeUTR" placeholder="Enter 12-digit UTR number" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">✅ Submit Recharge Request</button>
+                    <p class="note-text">⚠️ Your recharge will be verified by admin and credited to your wallet.</p>
+                </form>
+            </div>
+        </section>
+
+        <!-- ===== PAYMENT HISTORY SECTION ===== -->
+        <section class="dashboard-section" id="payment-historySection" style="display:none;">
+            <h2>📊 Payment History</h2>
+            <div id="paymentHistoryList">
+                <!-- Loaded by JS -->
+            </div>
+        </section>
+
+        <!-- ===== PROFILE SECTION ===== -->
+        <section class="dashboard-section" id="profileSection" style="display:none;">
+            <h2>👤 My Profile</h2>
+            <form id="profileForm" class="profile-form">
+                <div class="form-group">
+                    <label>👤 Username</label>
+                    <input type="text" id="profileUsername" disabled>
+                </div>
+                <div class="form-group">
+                    <label>📧 Email</label>
+                    <input type="email" id="profileEmail">
+                </div>
+                <div class="form-group">
+                    <label>📱 Mobile</label>
+                    <input type="tel" id="profileMobile">
+                </div>
+                <div class="form-group">
+                    <label>🔒 New Password (leave blank to keep current)</label>
+                    <input type="password" id="profilePassword" placeholder="Enter new password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">💾 Save Changes</button>
+            </form>
+        </section>
+
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Battle FF Royale. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/shared.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/user.js"></script>
+    <script>
+        // Quick action buttons
+        document.querySelectorAll('.quick-action-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const target = this.getAttribute('data-section');
+                document.querySelector(`.nav-btn[data-section="${target}"]`).click();
+            });
+        });
+
+        // Update home stats
+        document.addEventListener('DOMContentLoaded', function() {
+            const session = BFR.getUserSession();
+            if (!session) return;
+            const user = BFR.findUserById(session.id);
+            if (!user) return;
+
+            const allTournaments = BFR.getTournaments();
+            const myTournaments = allTournaments.filter(t =>
+                t.joinedPlayers && t.joinedPlayers.includes(user.id)
+            );
+            const available = allTournaments.filter(t =>
+                t.status !== 'completed' && (!t.joinedPlayers || !t.joinedPlayers.includes(user.id))
+            );
+
+            const jc = document.getElementById('joinedCount');
+            const ac = document.getElementById('availableCount');
+            if (jc) jc.textContent = myTournaments.length;
+            if (ac) ac.textContent = available.length;
+        });
+    </script>
+</body>
+</html>
