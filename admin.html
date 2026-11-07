@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Battle FF Royale</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+
+    <!-- ===== ADMIN LOGIN ===== -->
+    <section id="adminLoginSection" class="auth-page">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🔥</span>
+                    <span class="logo-text">Battle <span class="accent">FF</span> Royale</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <span class="admin-badge">🔒 Admin Panel</span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="auth-container">
+            <div class="auth-card admin-login-card">
+                <div class="auth-header">
+                    <div class="auth-icon">🛡️</div>
+                    <h2>Admin Login</h2>
+                    <p>Restricted access - Admin only</p>
+                </div>
+                <form id="adminLoginForm" class="auth-form">
+                    <div class="form-group">
+                        <label>👤 Admin Username</label>
+                        <input type="text" id="adminUsername" placeholder="Enter admin username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>🔒 Admin Password</label>
+                        <input type="password" id="adminPassword" placeholder="Enter admin password" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-full">🛡️ Admin Login</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Default: <code>admin</code> / <code>admin123</code></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ADMIN PANEL ===== -->
+    <div id="adminPanel" style="display:none;">
+
+        <!-- Admin Navbar -->
+        <nav class="navbar admin-navbar">
+            <div class="container nav-container">
+                <a href="#" class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <span class="logo-text">Admin <span class="accent">Panel</span></span>
+                </a>
+                <div class="nav-links">
+                    <span class="admin-badge">👑 Admin</span>
+                    <a href="index.html" class="btn btn-outline btn-sm">🌐 View Site</a>
+                    <a href="#" class="btn btn-danger btn-sm btn-logout-admin">🚪 Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Admin Nav -->
+        <div class="dashboard-nav admin-nav">
+            <div class="container">
+                <button class="admin-nav-btn active" data-section="dashboard">📊 Dashboard</button>
+                <button class="admin-nav-btn" data-section="tournaments">🏆 Tournaments</button>
+                <button class="admin-nav-btn" data-section="users">👥 Users</button>
+                <button class="admin-nav-btn" data-section="payments">💳 Payments</button>
+                <button class="admin-nav-btn" data-section="settings">⚙️ Settings</button>
+            </div>
+        </div>
+
+        <div class="container dashboard-content">
+
+            <!-- ===== DASHBOARD ===== -->
+            <section class="admin-section" id="dashboardSection">
+                <h2>📊 Dashboard Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card stat-users">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <span class="stat-val" id="statUsers">0</span>
+                            <span class="stat-label">Total Users</span>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-tournaments">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-info">
+                            <span class="stat-val" id="statTournaments">0</span>
+                            <span class="stat-label">Tournaments</span>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-pending">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-info">
+                            <span class="stat-val" id="statPending">0</span>
+                            <span class="stat-label">Pending Payments</span>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-earnings">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <span class="stat-val" id="statTotalEarnings">₹0</span>
+                            <span class="stat-label">Total Earnings</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== TOURNAMENTS ===== -->
+            <section class="admin-section" id="tournamentsSection" style="display:none;">
+                <h2 id="formTitle">➕ Create Tournament</h2>
+
+                <div class="admin-form-card">
+                    <form id="tournamentForm" class="admin-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>🏆 Tournament Name</label>
+                                <input type="text" id="tourName" placeholder="Enter tournament name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>🎮 Game Name</label>
+                                <input type="text" id="tourGame" value="Battle FF Royale" placeholder="Game name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>💰 Entry Fee (₹)</label>
+                                <input type="number" id="tourEntryFee" placeholder="Entry fee" required>
+                            </div>
+                            <div class="form-group">
+                                <label>🏆 Prize Pool (₹)</label>
+                                <input type="number" id="tourPrizePool" placeholder="Prize pool" required>
+                            </div>
+                            <div class="form-group">
+                                <label>⚔️ Per Kill (₹)</label>
+                                <input type="number" id="tourPerKill" placeholder="Per kill reward">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>👥 Max Players</label>
+                                <input type="number" id="tourTotalPlayers" placeholder="Max players" required>
+                            </div>
+                            <div class="form-group">
+                                <label>📅 Date</label>
+                                <input type="date" id="tourDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>⏰ Time</label>
+                                <input type="time" id="tourTime">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>🔑 Room Code (will be shown to joined players)</label>
+                                <input type="text" id="tourRoomCode" placeholder="Room code">
+                            </div>
+                            <div class="form-group">
+                                <label>📊 Status</label>
+                                <select id="tourStatus">
+                                    <option value="upcoming">Upcoming</option>
+                                    <option value="live">Live</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>📝 Description</label>
+                            <textarea id="tourDesc" placeholder="Tournament description" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>🖼️ Tournament Banner Image</label>
+                            <input type="file" id="bannerUpload" accept="image/*">
+                            <div id="bannerPreview" style="margin-top:10px;"></div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="submitBtn">Create Tournament</button>
+                            <button type="button" class="btn btn-outline" id="cancelEditBtn" style="display:none;">Cancel Edit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <h2>📋 Tournament List</h2>
+                <div class="tournament-grid" id="tournamentListAdmin">
+                    <!-- Loaded by JS -->
+                </div>
+            </section>
+
+            <!-- ===== USERS ===== -->
+            <section class="admin-section" id="usersSection" style="display:none;">
+                <h2>👥 User Management</h2>
+                <div id="userListAdmin">
+                    <!-- Loaded by JS -->
+                </div>
+            </section>
+
+            <!-- ===== PAYMENTS ===== -->
+            <section class="admin-section" id="paymentsSection" style="display:none;">
+                <h2>💳 Payment Requests</h2>
+                <div id="paymentRequestsAdmin">
+                    <!-- Loaded by JS -->
+                </div>
+            </section>
+
+            <!-- ===== SETTINGS ===== -->
+            <section class="admin-section" id="settingsSection" style="display:none;">
+                <h2>⚙️ Payment & Site Settings</h2>
+
+                <div class="admin-form-card">
+                    <h3>💳 UPI Payment Settings</h3>
+                    <form id="settingsForm" class="admin-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>📧 UPI ID</label>
+                                <input type="text" id="settingsUpiId" placeholder="Enter UPI ID (e.g., example@upi)">
+                            </div>
+                            <div class="form-group">
+                                <label>👤 UPI Name</label>
+                                <input type="text" id="settingsUpiName" placeholder="Enter UPI display name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>💰 Minimum Recharge (₹)</label>
+                            <input type="number" id="settingsMinRecharge" placeholder="Minimum recharge amount">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>📱 Telegram Link</label>
+                                <input type="text" id="settingsTelegram" placeholder="https://t.me/...">
+                            </div>
+                            <div class="form-group">
+                                <label>💬 WhatsApp Link</label>
+                                <input type="text" id="settingsWhatsapp" placeholder="https://wa.me/...">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">💾 Save Settings</button>
+                    </form>
+                </div>
+
+                <div class="admin-form-card">
+                    <h3>🖼️ QR Code Upload</h3>
+                    <p class="note-text">Upload your UPI QR code image here. It will be shown to users during recharge.</p>
+                    <div class="form-group">
+                        <label>Upload QR Code Image</label>
+                        <input type="file" id="qrUpload" accept="image/*">
+                    </div>
+                    <div id="qrPreviewAdmin" class="qr-preview">
+                        <!-- QR Preview loaded by JS -->
+                    </div>
+                </div>
+
+                <div class="admin-form-card">
+                    <h3>🔑 Change Admin Password</h3>
+                    <form id="adminPasswordForm" class="admin-form">
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password" id="currentAdminPass" required>
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" id="newAdminPass" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm New Password</label>
+                            <input type="password" id="confirmAdminPass" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">🔑 Update Password</button>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="js/shared.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
