@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle FF Royale - Free Fire Tournament</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🔥</span>
+                <span class="logo-text">Battle <span class="accent">FF</span> Royale</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="index.html#tournaments" class="nav-link">Tournaments</a>
+                <a href="login.html" class="nav-link">Login</a>
+                <a href="register.html" class="btn btn-primary btn-nav">Register</a>
+            </div>
+            <button class="hamburger" id="hamburgerBtn">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="index.html#tournaments" class="nav-link">Tournaments</a>
+            <a href="login.html" class="nav-link">Login</a>
+            <a href="register.html" class="nav-link">Register</a>
+            <a href="admin.html" class="nav-link">Admin</a>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">
+                <span class="hero-fire">🔥</span> Battle FF Royale
+            </h1>
+            <p class="hero-subtitle">India's #1 Free Fire Tournament Platform</p>
+            <p class="hero-desc">Join exciting tournaments, win big prizes, and become the ultimate champion!</p>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn btn-primary btn-lg">🎮 Play Now</a>
+                <a href="#tournaments" class="btn btn-outline btn-lg">🏆 View Tournaments</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <span class="stat-num" id="heroTournamentCount">0</span>
+                    <span class="stat-label">Tournaments</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-num" id="heroPlayerCount">0</span>
+                    <span class="stat-label">Players</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-num">₹1000+</span>
+                    <span class="stat-label">Daily Prizes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TOURNAMENTS SECTION ===== -->
+    <section class="section" id="tournaments">
+        <div class="container">
+            <h2 class="section-title">🏆 Active Tournaments</h2>
+            <p class="section-subtitle">Choose your battlefield and fight for glory!</p>
+            <div class="tournament-grid" id="publicTournaments">
+                <!-- Tournaments loaded by JS -->
+                <div class="empty-state">
+                    <h3>🎮 Loading Tournaments...</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">⚡ Why Choose Battle FF Royale?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Big Prizes</h3>
+                    <p>Win exciting cash prizes and rewards in every tournament!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Payouts</h3>
+                    <p>Get your winnings instantly in your wallet and UPI!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Safe</h3>
+                    <p>Secure payment system and fair gameplay guaranteed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Easy to Play</h3>
+                    <p>Join tournaments with just a few clicks from your mobile!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">📋 How It Works?</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <h3>Register</h3>
+                    <p>Create your free account</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <h3>Recharge</h3>
+                    <p>Add money via UPI</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <h3>Join</h3>
+                    <p>Select and join tournament</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">4</div>
+                    <h3>Play & Win</h3>
+                    <p>Get room code and play!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>🔥 Battle FF Royale</h3>
+                    <p>India's best Free Fire tournament platform. Join, Play, Win!</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="register.html">Register</a>
+                    <a href="login.html">Login</a>
+                    <a href="admin.html">Admin</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="#" id="footerTelegram">Telegram</a>
+                    <a href="#" id="footerWhatsapp">WhatsApp</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Battle FF Royale. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/shared.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Load public tournaments on index
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('publicTournaments');
+            const tournaments = BFR.getTournaments().filter(t => t.status !== 'completed');
+            
+            // Hero stats
+            document.getElementById('heroTournamentCount').textContent = BFR.getTournaments().length;
+            document.getElementById('heroPlayerCount').textContent = BFR.getUsers().length;
+
+            if (tournaments.length === 0) {
+                container.innerHTML = '<div class="empty-state"><h3>🎮 No Active Tournaments</h3><p>Stay tuned! New tournaments coming soon.</p></div>';
+                return;
+            }
+
+            container.innerHTML = tournaments.map(t => {
+                const totalPlayers = t.joinedPlayers ? t.joinedPlayers.length : 0;
+                return `
+                    <div class="tournament-card">
+                        <div class="tournament-banner">
+                            ${t.banner ? `<img src="${t.banner}" alt="${t.name}">` : `<div class="no-banner">🎮 ${t.name}</div>`}
+                            <span class="tournament-status status-${t.status}">${t.status.toUpperCase()}</span>
+                        </div>
+                        <div class="tournament-info">
+                            <h3>${t.name}</h3>
+                            <div class="tournament-details">
+                                <div class="detail"><span>🎯 Game:</span><b>${t.game || 'Battle FF Royale'}</b></div>
+                                <div class="detail"><span>💰 Entry:</span><b>₹${t.entryFee}</b></div>
+                                <div class="detail"><span>🏆 Prize:</span><b>₹${t.prizePool}</b></div>
+                                <div class="detail"><span>📅 Date:</span><b>${t.date} ${t.time || ''}</b></div>
+                                <div class="detail"><span>👥 Players:</span><b>${totalPlayers}/${t.totalPlayers}</b></div>
+                            </div>
+                            <div class="tournament-actions">
+                                <a href="login.html" class="btn btn-primary">⚡ Join Now</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Footer links
+            const settings = BFR.getSettings();
+            const ft = document.getElementById('footerTelegram');
+            const fw = document.getElementById('footerWhatsapp');
+            if (ft) ft.href = settings.telegramLink || '#';
+            if (fw) fw.href = settings.whatsappLink || '#';
+
+            // Hamburger menu
+            const hamBtn = document.getElementById('hamburgerBtn');
+            const mobMenu = document.getElementById('mobileMenu');
+            if (hamBtn && mobMenu) {
+                hamBtn.addEventListener('click', () => {
+                    mobMenu.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
